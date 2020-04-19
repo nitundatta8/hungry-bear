@@ -7,16 +7,22 @@ export class Bear{
 
   setHungry(){
     setInterval(() => {
-     return  this.foodLevel--;
+    $(".intro").text("Bear name is  " + this.name + "  Food level is " + this.foodLevel);
+      return  this.foodLevel--;
     },1000)
   }
 
-  didYouGetEaten(){
-    if(this.foodLevel > 0){
-      return false;
-    }else{
-      return true;
-    }
+ didYouGetEaten(){
+    setInterval(() => {
+      if(this.foodLevel > 0){
+       $("#entryView").text("You should feed bear before 10 seconds OR");
+      }else{
+        $("#entryView").text("You have been eaten");
+
+
+      }
+      },1001)
+   
 }
 
   resetGame(){
@@ -27,6 +33,13 @@ export class Bear{
   }
 
   feed(){
-    return this.foodLevel = 10;
+    setInterval(() => {
+      let arrLevel = [0,10]; 
+       let randomNum = Math.floor(Math.random()*arrLevel.length);
+       this.foodLevel =arrLevel[randomNum];
+     // $(".intro").text("Bear name is  " + this.name + "  Food level is " + this.foodLevel);
+      
+},10001)
+    
   }
 }
