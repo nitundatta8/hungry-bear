@@ -40,5 +40,11 @@ describe("Bear",function(){
      expect(bear.feed()).toEqual(10);
 
   });
+
+  test("should a player still feed the bear after getting 'eaten' and keep playing",() =>{
+      jest.advanceTimersByTime(10001);
+      bear.didYouGetEaten();
+      expect(bear.resetGame()).toEqual(10);
+  });
    
 });

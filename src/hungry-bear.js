@@ -17,6 +17,13 @@ export class Bear{
     }else{
       return true;
     }
+}
+
+  resetGame(){
+    if(this.didYouGetEaten() === true){
+       return this.feed();
+    }
+    
   }
 
   feed(){
