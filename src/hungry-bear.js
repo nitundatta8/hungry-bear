@@ -1,28 +1,25 @@
-import {Planet,Earth,Mercury,Venus,Mars,Jupiter,Person} from "./../src/age-calculator";
 
-
-//service class
-export class GalacticAgeCalculator  {
-  constructor(){}
-
-  calculateAge(personAge,planetAgeFactor){
-    let age = Math.round(personAge * planetAgeFactor);
-    return age;
+export class Bear{
+  constructor(name){
+    this.name = name;
+    this.foodLevel = 10;
   }
 
-  calculateAveLifeExp(person){
-    const aveAge = 80;
-    if(person.lifestyle === 'healthy lifestyle' && person.diet === 'healthy diet'  && person.activityLevel==='moderate'){
-      return  aveAge; 
+  setHungry(){
+    setInterval(() => {
+     return  this.foodLevel--;
+    },1000)
+  }
+
+  didYouGetEaten(){
+    if(this.foodLevel > 0){
+      return false;
     }else{
-      return aveAge - 5;
+      return true;
     }
   }
 
-  calcuExceedAveAge(personAgeInPlanet,aveAge){
-    
-     let exceedAveAge = Math.round(personAgeInPlanet - aveAge);
-     return exceedAveAge;
+  feed(){
+    return this.foodLevel = 10;
   }
-
 }
